@@ -308,7 +308,7 @@ public class CustomerServlet extends BaseServlet {
         // TODO
 
         CustomerLogic customerLogic = new CustomerLogic();
-        CustomerBean customer = customerLogic.setCustomerBeanFromRequestToSession(request);
+        CustomerBean customer = userLogic.setCustomerBeanFromRequestToSession(request);
         getServletContext().getRequestDispatcher("/WEB-INF/customer/new_confirm.jsp").forward(request, response);
     }
 }

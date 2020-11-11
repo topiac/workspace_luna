@@ -8,9 +8,53 @@
 <link rel="stylesheet"
     href="${pageContext.request.contextPath}/style.css">
 </head>
- <h1>顧客管理</h1>
+<body>
+  <!--
+        <div class="main">
+        <h1>顧客管理</h1>
+            <h2>新規登録</h2>
+            <form action="" method="post">
+                <table>
+                    <tr>
+                        <th>氏名</th>
+                        <td><input name="" type="text"></td>
+                    </tr>
+                    <tr>
+                        <th>郵便番号</th>
+                        <td><input name="" type="text"></td>
+                    </tr>
+                    <tr>
+                        <th>住所１</th>
+                        <td><input name="" type="tel"></td>
+                    </tr>
+                    <tr>
+                        <th>住所２</th>
+                        <td><input name="" type="text"></td>
+                    </tr>
+                    <tr>
+                        <th>TEL</th>
+                        <td><input name="" type="text"></td>
+                    </tr>
+                    <tr>
+                        <th>FAX</th>
+                        <td><input name="" type="text"></td>
+                    </tr>
+                    <tr>
+                        <th>E-mail</th>
+                        <td><input name="" type="text"></td>
+                    </tr>
+                <table>
+                    <div class="btn">
+                        <input type="submit" value="送信">
+                        <input type="button" value="戻る">
+                    </div>
+            </form>
+        </div>
+    </div> -->
+
+    <h1>顧客管理</h1>
     <div class="main">
-        <form action="CustomerServlet" method="post" onsubmit="return funcConfirm()">
+        <form action="CustomerServlet" method="post">
         <h2>詳細</h2>
         <table border="1">
             <tr>
@@ -44,7 +88,8 @@
         </table>
             <p>
                 <!-- TODO ｢編集｣ボタン -->
-                <button name="state" value="new">送信</button>
+                <input type="submit" onclick="return funcConfirm()">
+                <input type="hidden" name="state" value="new_confirm">
                 <input type="button" value="戻る" onclick="history.back()">
             </p>
         </form>
@@ -52,38 +97,13 @@
 </body>
 <script type="text/javascript">
     function funcConfirm() {
+
         // TODO バリデーションチェック･alertダイアログ処理
         const name = document.getElementById('name').value;
-        const zip = document.getElementById('zip').value;
-        const address1 = document.getElementById('address1').value;
-        const address2 = document.getElementById('address2').value;
-        const tel = document.getElementById('tel').value;
-        const fax = document.getElementById('fax').value;
-        const email = document.getElementById('email').value;
-        if(name==""){
-        alert('氏名が入力されていません');
+        if(name.length < 20){
+        alert('8文字以上入力してください');
         return false
-        }
-        if(zip==""){
-        alert('郵便番号が入力されていません');
-        return false
-        }
-        if(address1==""){
-        alert('住所1が入力されていません');
-        return false
-        }
-        if(tel==""){
-        alert('電話番号が入力されていません');
-        return false
-        }
-        if(email==""){
-        alert('E-mailが入力されていません');
-        return false
-        }
-        // if(!zip.match(/^\d{3}[-]\d{4}$|^\d{7}$/)){
-        // alert('郵便番号を正しく入力してください');
-        // return false
-        // }
+  }
     }
 </script>
 </html>

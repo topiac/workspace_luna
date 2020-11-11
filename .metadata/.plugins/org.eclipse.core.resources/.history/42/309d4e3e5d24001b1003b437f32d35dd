@@ -153,7 +153,7 @@ public class CustomerDao extends BaseDao {
     public String add(CustomerBean customer) {
         LogUtil.println(this.getClass().getSimpleName() + "#add");
 
-        // TODO
+        // TODO 未実装
         String errMessage = null;
         PreparedStatement pstmt = null;
         String strSql = "INSERT INTO CUSTOMERMANAGER (NAME,ZIP,ADDRESS1,ADDRESS2,TEL,FAX,EMAIL) VALUES(?,?,?,?,?,?,?)"
@@ -162,12 +162,12 @@ public class CustomerDao extends BaseDao {
             open();
             pstmt = conn.prepareStatement(strSql);
             pStmt.setString(1, customer.getName());
-            pStmt.setString(2, customer.getZip());
-            pStmt.setString(3, customer.getAddress1());
-            pStmt.setString(4, customer.getAddress2());
-            pStmt.setString(5, customer.getTel());
-            pStmt.setString(6, customer.getFax());
-            pStmt.setString(7, customer.getEmail());
+			pStmt.setString(2, customer.getZip());
+			pStmt.setString(3, customer.getAddress1());
+			pStmt.setString(4, customer.getAddress2());
+			pStmt.setString(5, customer.getTel());
+			pStmt.setString(6, customer.getFax());
+			pStmt.setString(7, customer.getEmail());
             pstmt.executeUpdate();
         } catch (ClassNotFoundException | SQLException e) {
             errMessage = e.getMessage();
@@ -181,6 +181,7 @@ public class CustomerDao extends BaseDao {
                 LogUtil.printStackTrace(e);
             }
         }
+
         return errMessage;
     }
 

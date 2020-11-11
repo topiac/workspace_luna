@@ -10,14 +10,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import customer.CustomerBean;
-import customer.CustomerListBean;
-import customer.CustomerListLogic;
-import customer.CustomerLogic;
 import user.UserBean;
 import user.UserLogic;
 import util.LogUtil;
 import util.StringUtil;
+import customer.CustomerBean;
+import customer.CustomerListBean;
+import customer.CustomerListLogic;
+import customer.CustomerLogic;
 
 /**
  * 顧客管理のサーブレット
@@ -308,7 +308,7 @@ public class CustomerServlet extends BaseServlet {
         // TODO
 
         CustomerLogic customerLogic = new CustomerLogic();
-        CustomerBean customer = customerLogic.setCustomerBeanFromRequestToSession(request);
+        CustomerBean customer = userLogic.setCustomerBeanFromRequestToSession(request);
         getServletContext().getRequestDispatcher("/WEB-INF/customer/new_confirm.jsp").forward(request, response);
     }
 }

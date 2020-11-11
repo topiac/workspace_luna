@@ -9,9 +9,9 @@
 <body>
     <h1>顧客管理</h1>
     <div class="main">
-
         <!-- TODO ｢新規登録完了｣画面 -->
-
+        <h2>新規登録完了</h2>
+        <p><button name="state" value="search" formaction="LoginServlet">検索画面</button></p>
     </div>
 </body>
 </html>

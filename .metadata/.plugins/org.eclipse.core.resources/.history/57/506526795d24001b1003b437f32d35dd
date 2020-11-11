@@ -181,6 +181,7 @@ public class CustomerDao extends BaseDao {
                 LogUtil.printStackTrace(e);
             }
         }
+
         return errMessage;
     }
 

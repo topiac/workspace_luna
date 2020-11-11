@@ -1,10 +1,9 @@
 package customer;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
-import dao.CustomerDao;
 import util.LogUtil;
+import dao.CustomerDao;
 
 /**
  * 顧客情報のロジック
@@ -76,7 +75,7 @@ public class CustomerLogic {
     public void setCustomerBeanFromRequestToSession(HttpServletRequest request) {
         LogUtil.println(this.getClass().getSimpleName() + "#setCustomerBeanFromRequestToSession");
 
-        // TODO
+        // TODO 未実装
         CustomerBean customer = new Customer();
 
         request.setCharacterEncoding("UTF-8");
