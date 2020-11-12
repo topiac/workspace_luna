@@ -10,13 +10,11 @@
 </head>
  <h1>顧客管理</h1>
     <div class="main">
-        <!-- alertが作動した際に処理を止める -->
         <form action="CustomerServlet" method="post" onsubmit="return funcConfirm()">
         <h2>詳細</h2>
         <table border="1">
             <tr>
                 <td class="title">氏名</td>
-                <!-- 最大文字数を20文字に設定 -->
                 <td><input name="name" id="name" type="text" maxlength="20"></td>
             </tr>
             <tr>
@@ -46,7 +44,7 @@
         </table>
             <p>
                 <!-- TODO ｢編集｣ボタン -->
-                <button name="state" value="add">送信</button>
+                <button name="state" value="new">送信</button>
                 <input type="button" value="戻る" onclick="history.back()">
             </p>
         </form>
@@ -62,8 +60,6 @@
         const tel = document.getElementById('tel').value;
         const fax = document.getElementById('fax').value;
         const email = document.getElementById('email').value;
-        // 入力がない場合はエラーメッセージを表示させる
-        // address2,faxは入力なしを許容する
         if(name==""){
         alert('氏名が入力されていません');
         return false
@@ -84,13 +80,8 @@
         alert('E-mailが入力されていません');
         return false
         }
-        
         // if(!zip.match(/^\d{3}[-]\d{4}$|^\d{7}$/)){
         // alert('郵便番号を正しく入力してください');
-        // return false
-        // }
-        // if(!zip.match(/[\w\-._]+@[\w\-._]+\.[A-Za-z]+/)){
-        // alert('メールアドレスを正しく入力してください');
         // return false
         // }
     }

@@ -153,7 +153,8 @@ public class CustomerDao extends BaseDao {
     public String add(CustomerBean customer) {
         LogUtil.println(this.getClass().getSimpleName() + "#add");
 
-        // TODO
+        // TODO実装部分
+        // errMessageにnullを格納。データベース登録に成功した場合はこれがそのまま戻り値になる。
         String errMessage = null;
         PreparedStatement pstmt = null;
         String strSql = "INSERT INTO CUSTOMERMANAGER (NAME,ZIP,ADDRESS1,ADDRESS2,TEL,FAX,EMAIL) VALUES(?,?,?,?,?,?,?)"
@@ -168,7 +169,9 @@ public class CustomerDao extends BaseDao {
             pStmt.setString(5, customer.getTel());
             pStmt.setString(6, customer.getFax());
             pStmt.setString(7, customer.getEmail());
+            //sql文を実行する
             pstmt.executeUpdate();
+        // 例外が発生した場合はerrMessageに例外の内容を格納する
         } catch (ClassNotFoundException | SQLException e) {
             errMessage = e.getMessage();
             LogUtil.printStackTrace(e);

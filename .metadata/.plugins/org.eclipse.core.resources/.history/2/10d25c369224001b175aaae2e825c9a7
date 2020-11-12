@@ -20,7 +20,6 @@
                 <th>氏名</th>
                 <th>郵便番号</th>
                 <th>住所</th>
-                <!-- 管理者権限がある場合は表示  -->
                 <%
                     if (user.getLvl() >= 1) {
                 %>
@@ -43,9 +42,7 @@
                 %>
                 <td class="center">
                 <form action="CustomerServlet" method="post">
-                    <!-- state[0]=detail,state[1]=顧客ID の配列をCustomerServletにPOSTする-->
                     <button name="state" value="detail,<%=customer.getId()%>">詳細</button>
-                    <!-- state[0]=delete,state[1]=顧客ID の配列をCustomerServletにPOSTする-->
                     <button name="state" value="delete,<%=customer.getId()%>">削除</button>
                 </form>
                 </td>

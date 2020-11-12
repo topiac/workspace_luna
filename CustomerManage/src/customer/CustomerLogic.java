@@ -33,11 +33,13 @@ public class CustomerLogic {
     public String add(CustomerBean customer) {
         LogUtil.println(this.getClass().getSimpleName() + "#add");
 
-        // TODO
+        // TODO実装部分
+        // errMessageにnullを格納。データベース登録に成功した場合はこれがそのまま戻り値になる。
         String errMessage = null;
         CustomerDao customerDao = new CustomerDao();
-
+        // データベース登録が失敗した場合(成功した場合は戻り値でnullが返ってくる)
         if (customerDao.add(customer) != null) {
+        // MESSAGE_CAN_NOT_ADD = "追加できませんでした。" MessageConstantsクラス参照
             errMessage = MESSAGE_CAN_NOT_ADD;
         }
         return errMessage;
@@ -76,10 +78,15 @@ public class CustomerLogic {
     public void setCustomerBeanFromRequestToSession(HttpServletRequest request) {
         LogUtil.println(this.getClass().getSimpleName() + "#setCustomerBeanFromRequestToSession");
 
-        // TODO
+        // TODO実装部分
         CustomerBean customer = new Customer();
 
+        // CustomerServletから引数で受け取ったrequestから顧客情報を取り出す処理
         request.setCharacterEncoding("UTF-8");
+        // customer.setName(StringUtil.exchangeESCEncoding(request.getParameter("name")));
+        // のようにまとめて書くことも可能かもしれません。
+        // UserLogic参照のStringUtil.exchangeESCEncoding()はNULLでも例外が発生しないようにするメソッドのようです。
+        // 取得したデータをif文などに使用する場合は便利かもしれません。
         String name = request.getParameter("name");
         String zip = request.getParameter("zip");
         String address1 = request.getParameter("address1");
