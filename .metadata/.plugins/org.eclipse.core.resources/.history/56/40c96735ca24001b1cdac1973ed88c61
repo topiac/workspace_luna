@@ -10,9 +10,9 @@
 </head>
  <h1>顧客管理</h1>
     <div class="main">
-        <!-- alertが作動した際にformの処理を止める -->
+        <!-- alertが作動した際に処理を止める -->
         <form action="CustomerServlet" method="post" onsubmit="return funcConfirm()">
-        <h2>新規登録</h2>
+        <h2>詳細</h2>
         <table border="1">
             <tr>
                 <td class="title">氏名</td>
@@ -41,7 +41,7 @@
             </tr>
             <tr>
                 <td class="title">E-mail</td>
-                <td><input name="email" id="email" type="text"　maxlength="100"></td>
+                <td><input name="email" id="email" type="text"></td>
             </tr>
         </table>
             <p>
@@ -84,7 +84,7 @@
         alert('E-mailが入力されていません');
         return false
         }
-
+        
         // if(!zip.match(/^\d{3}[-]\d{4}$|^\d{7}$/)){
         // alert('郵便番号を正しく入力してください');
         // return false

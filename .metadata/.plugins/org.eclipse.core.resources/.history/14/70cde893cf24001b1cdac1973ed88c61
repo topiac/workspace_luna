@@ -12,7 +12,7 @@
     <div class="main">
         <!-- alertが作動した際にformの処理を止める -->
         <form action="CustomerServlet" method="post" onsubmit="return funcConfirm()">
-        <h2>新規登録</h2>
+        <h2>詳細</h2>
         <table border="1">
             <tr>
                 <td class="title">氏名</td>

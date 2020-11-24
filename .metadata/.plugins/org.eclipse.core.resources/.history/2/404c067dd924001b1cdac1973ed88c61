@@ -84,9 +84,9 @@ public class CustomerLogic {
         // CustomerServletから引数で受け取ったrequestから顧客情報を取り出す処理
         request.setCharacterEncoding("UTF-8");
         // customer.setName(StringUtil.exchangeESCEncoding(request.getParameter("name")));
-        // のようにまとめて書くことも可能かもしれません。(UserLogicクラスLoginServletクラスなど参照)
-        // StringUtilはNULLでも例外が発生しないようにする処理のようです。
-        // exchangeESCEncoding()はフォーム入力情報のエスケープ処理？要確認。
+        // のようにまとめて書くことも可能かもしれません。
+        // UserLogic参照のStringUtil.exchangeESCEncoding()はNULLでも例外が発生しないようにするメソッドのようです。
+        // 取得したデータをif文などに使用する場合は便利かもしれません。
         String name = request.getParameter("name");
         String zip = request.getParameter("zip");
         String address1 = request.getParameter("address1");

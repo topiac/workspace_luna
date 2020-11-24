@@ -86,7 +86,7 @@ public class CustomerLogic {
         // customer.setName(StringUtil.exchangeESCEncoding(request.getParameter("name")));
         // のようにまとめて書くことも可能かもしれません。(UserLogicクラスLoginServletクラスなど参照)
         // StringUtilはNULLでも例外が発生しないようにする処理のようです。
-        // exchangeESCEncoding()はフォーム入力情報のエスケープ処理？要確認。
+        // exchangeESCEncoding()はフォーム入力情報のエスケープ処理？不明。
         String name = request.getParameter("name");
         String zip = request.getParameter("zip");
         String address1 = request.getParameter("address1");

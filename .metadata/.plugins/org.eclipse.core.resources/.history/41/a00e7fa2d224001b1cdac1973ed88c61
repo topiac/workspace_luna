@@ -219,7 +219,7 @@ public class CustomerServlet extends BaseServlet {
         // TODO実装部分
         CustomerLogic customerLogic = new CustomerLogic();
         //　引数でHttpSession sessionを受け取っているのでrequest.getSession()の一文は不要かもしれません
-        // HttpSession session = request.getSession();
+        HttpSession session = request.getSession();
         CustomerBean customer = (CustomerBean)session.getAttribute("customer");
         String errMessage = null;
         errMessage = customerLogic.add(customer);

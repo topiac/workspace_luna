@@ -201,7 +201,8 @@ public class CustomerServlet extends BaseServlet {
      * @param response  HTTPのレスポンス
      */
     private void procNew(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // TODO実装部分
+        // TODO
+
         getServletContext().getRequestDispatcher("/WEB-INF/customer/new.jsp").forward(request, response);
     }
 
@@ -219,12 +220,12 @@ public class CustomerServlet extends BaseServlet {
         // TODO実装部分
         CustomerLogic customerLogic = new CustomerLogic();
         //　引数でHttpSession sessionを受け取っているのでrequest.getSession()の一文は不要かもしれません
-        // HttpSession session = request.getSession();
+        HttpSession session = request.getSession();
         CustomerBean customer = (CustomerBean)session.getAttribute("customer");
         String errMessage = null;
         errMessage = customerLogic.add(customer);
         session.removeAttribute("customer");
-        // データベース登録が成功(errMessageがnull)の場合
+        // データベース登録が成功(errMessageがnull)した場合
         if (errMessage == null) {
             getServletContext().getRequestDispatcher("/WEB-INF/customer/add_success.jsp").forward(request, response);
         // データベース登録が失敗した場合
@@ -306,7 +307,7 @@ public class CustomerServlet extends BaseServlet {
      */
     private void procNewConfirm(HttpServletRequest request, HttpServletResponse response) throws ServletException,
             IOException, UnsupportedEncodingException {
-
+        
         // TODO実装部分
         CustomerLogic customerLogic = new CustomerLogic();
         // CustomerLogicクラスのsetCustomerBeanFromRequestToSessionメソッドを呼び出し
